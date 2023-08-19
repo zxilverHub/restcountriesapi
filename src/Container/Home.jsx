@@ -46,7 +46,7 @@ function Home({ data, getCountry }) {
         <div className="country-card" key={i} onClick={()=>handleClickCountry(country) }>
           <Link to="/country/" >
             <div className="flag">
-              <img src={ country?.flags?.png } alt={country?.falgs?.alt} />
+              <img src={ country?.flags?.png } alt={country?.flags?.alt} />
             </div>
             <div className="country-initial-info">
               <h2 className="title">{ country?.name?.common }</h2>
