@@ -18,15 +18,18 @@ const AppRoute = () => {
 
 
     useEffect(()=> {
+
+        async function fetchAllData() {
+            try {
+              const response = await axios.get(`https://restcountries.com/v3.1/${endpoint}`);
+              setData(response.data);
+            } catch (error) {
+              setData(null);
+              console.log('Error fetching data:', error);
+            }
+        }
         
-        axios.get(`https:/restcountries.com/v3.1/${endpoint}`)
-        .then(resp => {
-            setData(resp.data)
-        })
-        .catch(error => {
-            setData(null)
-            console.log(error)
-        })
+        fetchAllData();
 
     }, [endpoint])
 
